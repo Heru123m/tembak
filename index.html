@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tembak</title>
+    <style type="text/css" media="all">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      @keyframes a2 {
+        from {top: 1000px; opacity: 0;}
+        to {opacity: 1;}
+      }
+      @keyframes a1 {
+        0% {transform: scale(1.0);}
+        50% {transform: scale(0.9);}
+        100% {transform: scale(1.0);}
+      }
+      body {
+        font-family: Arial;
+        background-size: cover;
+      }
+      #p1 {
+        display: none;
+      }
+      #nm {
+        animation: a2 2s;
+        border-radius: 20px;
+        width: 80%;
+        z-index: 10;
+        position: relative;
+        top: 250px;
+        backdrop-filter: blur(5px);
+        box-shadow: 1px 1px 10px #dfe9ec;
+        padding: 10px;
+      }
+      #nam {
+        width: 110px;
+        padding: 3px;
+        margin-top: 20px;
+        border-radius: 7px;
+        border: 1px solid black;
+        outline: none;
+        transition: .3s ease;
+      }
+      #nam:focus {
+        width: 200px;
+        margin-top: 25px;
+      }
+      #sb {
+        font-weight: bold;
+        background-color: #26f1ff;
+        border: 1px solid black;
+        border-radius: 10px;
+        width: 150px;
+        margin-top: 25px;
+        padding: 4px;
+        transition: .3s ease;
+      }
+      #sb:active {
+        transform: scale(0.9);
+        width: 180px;
+      }
+      #p1 {
+        margin-top: 30px;
+      }
+      #nm1 {
+        margin-top: 40px;
+        width: 250px;
+      }
+      #mau {
+        top: 0px;
+        position: relative;
+        font-weight: bold;
+        background-color: red;
+        border: 1px solid black;
+        border-radius: 7px;
+        width: 130px;
+        margin-top: 40px;
+        padding: 6px;
+        color: white;
+        transition: .3s ease;
+      }
+      #gk {
+        top: 0px;
+        position: relative;
+        margin-left: 15px;
+        font-weight: bold;
+        background-color: #26ffad;
+        border: 1px solid black;
+        border-radius: 7px;
+        width: 130px;
+        margin-top: 40px;
+        padding: 6px;
+        transition: .3s ease;
+      }
+      #gk:hover {
+        color: white;
+        text-shadow: 1px 1px 1px green;
+        position: relative;
+        top: -10px;
+        box-shadow: 1px 1px 15px lightgreen;
+        transform: scale(1.1);
+      }
+      #mau:hover {
+        position: relative;
+        top: -10px;
+        box-shadow: 1px 1px 12px red;
+        transform: scale(1.1);
+      }
+      #mu {
+        display: none;
+        overflow: hidden;
+      }
+      #m1, #m2 {
+        display: none;
+      }
+      #bgmu {
+        z-index: -10;
+        width: 120%;
+        filter: brightness(60%);
+        position: fixed;
+        top: -10px;
+        left: -30px;
+      }
+      #qu {
+        width: 90%;
+        color: white;
+        margin-top: 30%;
+        text-shadow: 1px 1px 2px black;
+      }
+      #ggl {
+        width: 90%;
+        color: red;
+        text-shadow: 1px 1px 2px black;
+      }
+      #gk1 {
+        display: none;
+      }
+      #gmau {
+        animation: a1 .4s infinite;
+        border-radius: 30px;
+        margin-top: 15px;
+      }
+      #bhs {
+        top: 0px;
+        position: relative;
+        animation: a2 1s;
+        margin-top: 30px;
+        width: 90%;
+      }
+      #wm {
+        position: relative;
+        top: 600px;
+        opacity: 0.5;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <div id="wm">
+        <h5>
+          Dibuat oleh: Heru Marselo
+         </h5>
+      </div>
+      <audio controls autoplay loop id="m2">
+        <source src="gk.mp3">
+      </audio>
+      <audio controls autoplay loop id="m1">
+        <source src="mau.mp3">
+      </audio>
+      <div id="nm">
+        <label for="nam">Masukkan nama kamu</label>
+        <br />
+        <input type="text" name="nam" id="nam" />
+        <br/>
+        <button id="sb" onclick="sb()" type="submit">Submit</button>
+      </div>
+      <div id="p1">
+       <img src="t.webp" width="110px" style="border-radius: 30px;"/>
+       <br />
+       <h2 id="nm1"></h2>
+       <br/>
+       <button id="mau" onclick="mau()" type="submit">Mau</button>
+       <button id="gk" type="submit" onclick="gk()">Gak mau</button>
+      </div>
+      <div id="mu">
+        <img src="gl.webp" width="100px" style="position: relative; top: 15px; border-radius: 30px;"/>
+        <video autoplay muted loop id="bgmu">
+          <source src="bgg.mp4"/>
+        </video>
+        <h3 id="qu">
+          وَلَا تَقْرَبُوا الزِّنٰۤى اِنَّهٗ كَا نَ فَا حِشَةً ۗ وَسَآءَ سَبِيْلًا <br /> <br />
+wa laa taqrobuz-zinaaa innahuu kaana faahisyah, wa saaa-a sabiilaa <br /> <br />
+"Dan janganlah kamu mendekati zina, (zina) itu sungguh suatu perbuatan keji, dan suatu jalan yang buruk." <br /> <br />
+(QS. Al-Isra' 17: Ayat 32)
+        </h3>
+        <br />
+        <br />
+        <h4 id="ggl"></h4>
+      </div>
+      <div id="gk1">
+        <img src="200.webp" width="110px" id="gmau" />
+        <h3 id="bhs"></h3>
+      </div>
+    </center>
+    <script type="text/javascript" charset="utf-8">
+      function sb() {
+        document.getElementById("p1").style.display = "block";
+        document.getElementById("nm").style.display = "none";
+        var nama = document.getElementById("nam").value;
+        document.getElementById("nm1").innerHTML = "Halo " + nama + " apakah kamu mau jadi pacar ku?";
+      }
+      function mau() {
+        var nama = document.getElementById("nam").value;
+        setTimeout(function() {
+          document.getElementById("wm").style.color = "white";
+          document.getElementById("p1").style.display = "none";
+        document.getElementById('m1').play();
+        document.getElementById("mu").style.display = "block";
+        document.getElementById("ggl").innerText = "Yah " + nama + " Kamu gagal, sebenarnya tadi aku cuma ngetes kamu, Ternyata kamu kalah dari godaan setan."
+        }, 500);
+      }
+      function gk() {
+        var nama = document.getElementById("nam").value;
+        setTimeout(function() {
+          document.getElementById("p1").style.display = "none";
+          document.getElementById("gk1").style.display = "block";
+          document.getElementById("m2").play();
+          document.getElementById("bhs").innerText = "Selamat " + nama + " kamu berhasil mengalahkan godaan setan, jangan longgarkan iman mu ya :)";
+        }, 500);
+      }
+    </script>
+  </body>
+</html>
